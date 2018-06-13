@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试时间控件</title>
+
+    <link rel="stylesheet" type="text/css" href="dateTimePicker.css" />
+
+    <script src="https://lc.dbazure.cn/dbfx/dbfx.js"></script>
+    <script src="https://lc.dbazure.cn/dbfxui/dbfx.web.controls.js"></script>
+    <script src="https://lc.dbazure.cn/dbfx/dbfx.commodel.js"></script>
+    <script src="dateTimePicker.js"></script>
+</head>
+<body>
+<div id="div" style="width: 800px; height: 500px;border: 1px solid saddlebrown;"></div>
+
+<script>
+
+    var d = new DBFX.Web.Controls.DateTimePicker();
+    // d._setDateFormatArray();
+
+    var time = new Date('2012/12/22');
+    // console.log(time);
+    // console.log(time.toLocaleTimeString());
+
+
+
+    // d.PickerType = 'date';
+    // d.PickerType = 'date';
+    // d.PickerType = 'date';
+    // d.PickerType = 'dateAndTime';
+    // d.PickerType = 'time';
+    d.SetHeight('30px');
+    d.SetWidth('15%');
+    d.PickerType = 'dateAndTime';
+
+    // d.SetValue(new Date());
+
+
+    console.log(d.GetValue());
+    d.SetEnabled(true);
+    document.getElementById('div').appendChild(d.VisualElement);
+    // var com = d.createComponent();
+    // console.log(com);
+
+    // d.Visibled = false;
+
+    d.SetVisibled(true);
+    d.Visibled = false;
+    d.SetVisibled(true);
+    // console.log(d.VisualElement.style.display);
+    // console.log(d.selectDate)
+
+
+
+</script>
+</body>
+</html>

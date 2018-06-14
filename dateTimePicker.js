@@ -347,7 +347,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     }
 
 
-
     //平台属性配置
     ds.VisualElement.className = "DateTimePicker";
 
@@ -517,9 +516,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     //可见性设置
     ds.SetVisibled = function (v) {
 
-        console.log(v);
-        console.log(ds.display);
-
         if(v==true){
             ds.VisualElement.style.display = ds.display;
         }else {
@@ -531,6 +527,10 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     /*============================================================================================*/
     ds.init = function () {
         var oDTP = ds;
+
+        //TODO:此处应该设置ds.value值
+
+
 
         if(oDTP.settings.isPopup)
         {
@@ -1069,14 +1069,11 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
 
 
-
-
     //获取元素的实例对象
     ds.getElementInstance = function () {
         //控件页面整体
         // ds.dtBox = document.getElementById('dtBox');
         // ds.dtBox = ds.VisualElement.querySelector('.dtpicker-overlay');
-
 
         //背景
         ds.bg = ds.dtBox.querySelector('.dtpicker-bg');

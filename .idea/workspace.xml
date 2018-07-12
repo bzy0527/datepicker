@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="391fa543-51f9-4677-8ac3-2e9f4018c064" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/dateTimePicker.js" afterPath="$PROJECT_DIR$/dateTimePicker.js" />
       <change beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
     </list>
@@ -21,53 +21,9 @@
       <file leaf-file-name="dateTimePicker.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dateTimePicker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="57" lean-forward="true" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
-              <folding>
-                <element signature="e#631#3214#0" expanded="false" />
-                <element signature="e#3344#4161#0" expanded="false" />
-                <element signature="e#4734#5284#0" expanded="false" />
-                <element signature="e#5384#5538#0" expanded="false" />
-                <element signature="e#5651#5797#0" expanded="false" />
-                <element signature="e#5873#6025#0" expanded="false" />
-                <element signature="e#6110#6264#0" expanded="false" />
-                <element signature="e#6348#6508#0" expanded="false" />
-                <element signature="e#6580#6728#0" expanded="false" />
-                <element signature="e#6821#6983#0" expanded="false" />
-                <element signature="e#7076#7238#0" expanded="false" />
-                <element signature="e#7331#7477#0" expanded="false" />
-                <element signature="e#7571#7723#0" expanded="false" />
-                <element signature="e#7829#7987#0" expanded="false" />
-                <element signature="e#8093#8251#0" expanded="false" />
-                <element signature="e#8344#8492#0" expanded="false" />
-                <element signature="e#8564#8712#0" expanded="false" />
-                <element signature="e#8786#8936#0" expanded="false" />
-                <element signature="e#9258#9521#0" expanded="false" />
-                <element signature="e#9554#9755#0" expanded="false" />
-                <element signature="e#10113#10473#0" expanded="false" />
-                <element signature="e#10535#10816#0" expanded="false" />
-                <element signature="e#12484#12877#0" expanded="false" />
-                <element signature="e#12914#13744#0" expanded="false" />
-                <element signature="e#13790#14383#0" expanded="false" />
-                <element signature="e#15534#17567#0" expanded="false" />
-                <element signature="e#17629#19490#0" expanded="false" />
-                <element signature="e#19552#21469#0" expanded="false" />
-                <element signature="e#21546#24634#0" expanded="false" />
-                <element signature="e#24689#27650#0" expanded="false" />
-                <element signature="e#27856#28195#0" expanded="false" />
-                <element signature="e#28236#30934#0" expanded="false" />
-                <element signature="e#30995#32781#0" expanded="false" />
-                <element signature="e#32857#33710#0" expanded="false" />
-                <element signature="e#33885#34673#0" expanded="false" />
-                <element signature="e#34833#35921#0" expanded="false" />
-                <element signature="e#35978#38424#0" expanded="false" />
-                <element signature="e#38458#39285#0" expanded="false" />
-                <element signature="e#39320#39663#0" expanded="false" />
-                <element signature="e#39925#41405#0" expanded="false" />
-                <element signature="e#42047#43253#0" expanded="false" />
-                <element signature="e#43344#45953#0" expanded="false" />
-                <element signature="e#46020#46506#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1224" column="13" lean-forward="false" selection-start-line="1224" selection-start-column="13" selection-end-line="1224" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,8 +41,8 @@
       <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="87" lean-forward="false" selection-start-line="14" selection-start-column="87" selection-end-line="14" selection-end-column="87" />
+            <state relative-caret-position="731">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -94,14 +50,19 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ds.loaded</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/dateTimePicker.js" />
+        <option value="$PROJECT_DIR$/test.html" />
       </list>
     </option>
   </component>
@@ -112,8 +73,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="427" />
-    <option name="y" value="31" />
+    <option name="x" value="361" />
+    <option name="y" value="30" />
     <option name="width" value="1367" />
     <option name="height" value="925" />
   </component>
@@ -132,7 +93,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -144,7 +105,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,27 +140,30 @@
       <option name="presentableId" value="Default" />
       <updated>1528852411189</updated>
       <workItem from="1528852412530" duration="2702000" />
-      <workItem from="1528858279377" duration="1601000" />
+      <workItem from="1528858279377" duration="6318000" />
+      <workItem from="1530521054517" duration="761000" />
+      <workItem from="1531126560748" duration="9159000" />
+      <workItem from="1531361015723" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4303000" />
+    <option name="totallyTimeSpent" value="18954000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="427" y="31" width="1367" height="925" extended-state="1" />
+    <frame x="361" y="30" width="1367" height="925" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24945135" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19897586" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -217,11 +181,75 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/dateTimePicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DateTimePickerDesigner.scrp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dateTimePicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DateTimePickerDesigner.scrp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dateTimePicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DateTimePickerDesigner.scrp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DateTimePickerDesigner.scrp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -234,51 +262,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5627">
           <caret line="1258" column="29" lean-forward="false" selection-start-line="1258" selection-start-column="29" selection-end-line="1258" selection-end-column="29" />
-          <folding>
-            <element signature="e#631#3214#0" expanded="false" />
-            <element signature="e#3344#4161#0" expanded="false" />
-            <element signature="e#4734#5284#0" expanded="false" />
-            <element signature="e#5384#5538#0" expanded="false" />
-            <element signature="e#5651#5797#0" expanded="false" />
-            <element signature="e#5873#6025#0" expanded="false" />
-            <element signature="e#6110#6264#0" expanded="false" />
-            <element signature="e#6348#6508#0" expanded="false" />
-            <element signature="e#6580#6728#0" expanded="false" />
-            <element signature="e#6821#6983#0" expanded="false" />
-            <element signature="e#7076#7238#0" expanded="false" />
-            <element signature="e#7331#7477#0" expanded="false" />
-            <element signature="e#7571#7723#0" expanded="false" />
-            <element signature="e#7829#7987#0" expanded="false" />
-            <element signature="e#8093#8251#0" expanded="false" />
-            <element signature="e#8344#8492#0" expanded="false" />
-            <element signature="e#8564#8712#0" expanded="false" />
-            <element signature="e#8786#8936#0" expanded="false" />
-            <element signature="e#9258#9521#0" expanded="false" />
-            <element signature="e#9554#9755#0" expanded="false" />
-            <element signature="e#10113#10473#0" expanded="false" />
-            <element signature="e#10535#10816#0" expanded="false" />
-            <element signature="e#12484#12877#0" expanded="false" />
-            <element signature="e#12914#13744#0" expanded="false" />
-            <element signature="e#13790#14383#0" expanded="false" />
-            <element signature="e#15534#17567#0" expanded="false" />
-            <element signature="e#17629#19490#0" expanded="false" />
-            <element signature="e#19552#21469#0" expanded="false" />
-            <element signature="e#21546#24634#0" expanded="false" />
-            <element signature="e#24689#27650#0" expanded="false" />
-            <element signature="e#27856#28195#0" expanded="false" />
-            <element signature="e#28236#30934#0" expanded="false" />
-            <element signature="e#30995#32781#0" expanded="false" />
-            <element signature="e#32857#33710#0" expanded="false" />
-            <element signature="e#33885#34673#0" expanded="false" />
-            <element signature="e#34833#35921#0" expanded="false" />
-            <element signature="e#35978#38424#0" expanded="false" />
-            <element signature="e#38458#39285#0" expanded="false" />
-            <element signature="e#39320#39663#0" expanded="false" />
-            <element signature="e#39925#41405#0" expanded="false" />
-            <element signature="e#42047#43253#0" expanded="false" />
-            <element signature="e#43344#45953#0" expanded="false" />
-            <element signature="e#46020#46506#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -300,61 +284,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="87" lean-forward="false" selection-start-line="14" selection-start-column="87" selection-end-line="14" selection-end-column="87" />
+        <state relative-caret-position="731">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dateTimePicker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="57" lean-forward="true" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
-          <folding>
-            <element signature="e#631#3214#0" expanded="false" />
-            <element signature="e#3344#4161#0" expanded="false" />
-            <element signature="e#4734#5284#0" expanded="false" />
-            <element signature="e#5384#5538#0" expanded="false" />
-            <element signature="e#5651#5797#0" expanded="false" />
-            <element signature="e#5873#6025#0" expanded="false" />
-            <element signature="e#6110#6264#0" expanded="false" />
-            <element signature="e#6348#6508#0" expanded="false" />
-            <element signature="e#6580#6728#0" expanded="false" />
-            <element signature="e#6821#6983#0" expanded="false" />
-            <element signature="e#7076#7238#0" expanded="false" />
-            <element signature="e#7331#7477#0" expanded="false" />
-            <element signature="e#7571#7723#0" expanded="false" />
-            <element signature="e#7829#7987#0" expanded="false" />
-            <element signature="e#8093#8251#0" expanded="false" />
-            <element signature="e#8344#8492#0" expanded="false" />
-            <element signature="e#8564#8712#0" expanded="false" />
-            <element signature="e#8786#8936#0" expanded="false" />
-            <element signature="e#9258#9521#0" expanded="false" />
-            <element signature="e#9554#9755#0" expanded="false" />
-            <element signature="e#10113#10473#0" expanded="false" />
-            <element signature="e#10535#10816#0" expanded="false" />
-            <element signature="e#12484#12877#0" expanded="false" />
-            <element signature="e#12914#13744#0" expanded="false" />
-            <element signature="e#13790#14383#0" expanded="false" />
-            <element signature="e#15534#17567#0" expanded="false" />
-            <element signature="e#17629#19490#0" expanded="false" />
-            <element signature="e#19552#21469#0" expanded="false" />
-            <element signature="e#21546#24634#0" expanded="false" />
-            <element signature="e#24689#27650#0" expanded="false" />
-            <element signature="e#27856#28195#0" expanded="false" />
-            <element signature="e#28236#30934#0" expanded="false" />
-            <element signature="e#30995#32781#0" expanded="false" />
-            <element signature="e#32857#33710#0" expanded="false" />
-            <element signature="e#33885#34673#0" expanded="false" />
-            <element signature="e#34833#35921#0" expanded="false" />
-            <element signature="e#35978#38424#0" expanded="false" />
-            <element signature="e#38458#39285#0" expanded="false" />
-            <element signature="e#39320#39663#0" expanded="false" />
-            <element signature="e#39925#41405#0" expanded="false" />
-            <element signature="e#42047#43253#0" expanded="false" />
-            <element signature="e#43344#45953#0" expanded="false" />
-            <element signature="e#46020#46506#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1224" column="13" lean-forward="false" selection-start-line="1224" selection-start-column="13" selection-end-line="1224" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

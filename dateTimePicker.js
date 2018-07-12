@@ -153,9 +153,27 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
             //     ds.VisualElement.removeChild(nodes[count - 1]);
             // }
 
+            switch (v){
+                case "date":
+                    ds.value = new Date(ds.value.getFullYear(),ds.value.getMonth(),ds.value.getDate());
+                    ds.selectDate = new Date(ds.value.getFullYear(),ds.value.getMonth(),ds.value.getDate());
+                    break;
+                case "time":
+                    ds.value = ds.value;
+                    ds.selectDate = ds.value;
+                    break;
+                case "dateAndTime":
+                    ds.value = ds.value;
+                    ds.selectDate = ds.value;
+                    break;
+                default:
+                    break;
+            }
+
             ds.contentLabel.innerText = ds.getDisplayDateStr(ds.value);
 
-            ds.loaded();
+
+            // ds.loaded();
         }
     });
 
@@ -319,7 +337,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     });
 
     ds.value = new Date();
-
 
     //保存年、月、日、时、分 显示的控件
     //{year: ,month: ,day: ,hour: ,minutes: ,seconds: }
@@ -1062,11 +1079,9 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
     }
 
-
     ds.handleDecrementBtnUp = function () {
         clearInterval(ds.decrementBtnClickOut);
     }
-
 
 
     //获取元素的实例对象
@@ -1105,13 +1120,14 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     //设置实例对象的样式
     ds.setElementsStyle = function () {
         // ds.header.style.background = '#dddddd';
-        ds.VisualElement.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
-        ds.VisualElement.style.borderRadius = parseInt(ds.borderRadius)+"px";
-        ds.VisualElement.style.fontFamily = ds.textFontFamily;
-
-        ds.contentLabel.style.fontSize = parseInt(ds.dateLabelFontsize)+'px';
-        ds.VisualElement.style.fontStyle = ds.textFontStyle;
-        ds.VisualElement.style.color = ds.titleColor;
+        //FIXME:
+        // ds.VisualElement.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
+        // ds.VisualElement.style.borderRadius = parseInt(ds.borderRadius)+"px";
+        // ds.VisualElement.style.fontFamily = ds.textFontFamily;
+        //
+        // ds.contentLabel.style.fontSize = parseInt(ds.dateLabelFontsize)+'px';
+        // ds.VisualElement.style.fontStyle = ds.textFontStyle;
+        // ds.VisualElement.style.color = ds.titleColor;
 
         //控件整体样式
         ds.content.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
@@ -1155,9 +1171,10 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     }
 
     ds.eventHanle = function () {
+        //FIXME:
         //点击显示框
-        ds.VisualElement.addEventListener('mousedown',ds.popUpPicker,false);
-        ds.VisualElement.addEventListener('touchstart',ds.popUpPicker,false);
+        // ds.VisualElement.addEventListener('mousedown',ds.popUpPicker,false);
+        // ds.VisualElement.addEventListener('touchstart',ds.popUpPicker,false);
 
         //点击背景
         ds.bg.addEventListener('mousedown',function () {
@@ -1186,6 +1203,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     }
 
     ds.popUpPicker = function () {
+        ds.loaded();
         switch (event.type){
             case "touchstart":
                 event.preventDefault();
@@ -1218,9 +1236,9 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
                 ds.selectDate = new Date(ds.tempDate.year.value,ds.tempDate.month.value-1,ds.tempDate.day.value);
                 break;
             case "time":
-                ds.value = new Date(ds.value.getFullYear(),ds.value.getMonth()+1,ds.value.getDate(),
+                ds.value = new Date(ds.value.getFullYear(),ds.value.getMonth(),ds.value.getDate(),
                     parseInt(ds.tempDate.hour.value),parseInt(ds.tempDate.minutes.value),parseInt(ds.tempDate.seconds.value));
-                ds.selectDate = new Date(ds.value.getFullYear(),ds.value.getMonth()+1,ds.value.getDate(),
+                ds.selectDate = new Date(ds.value.getFullYear(),ds.value.getMonth(),ds.value.getDate(),
                     parseInt(ds.tempDate.hour.value),parseInt(ds.tempDate.minutes.value),parseInt(ds.tempDate.seconds.value));
                 break;
             case "dateAndTime":
@@ -1235,6 +1253,8 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
 
         ds.contentLabel.innerText = ds.handleDate(ds.tempDate);
+
+        console.log(ds.value);
         ds.ValueChanged();
 
         //隐藏控件
@@ -1247,7 +1267,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         ds.hiddenOverlay();
     }
 
-
     //隐藏选择器页面
     ds.hiddenOverlay = function () {
         // ds.dtBox.style.display = 'none';
@@ -1258,8 +1277,10 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     //TODO:页面加载后需要做的处理
     ds.loaded = function () {
 
+        console.log("ds.loaded");
         //初始化数据 并创建页面
         ds.init();
+
         //获取标签的实例对象
         ds.getElementInstance();
 
@@ -1289,7 +1310,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         ds.VisualElement.style.display = 'block';
         ds.VisualElement.style.lineHeight = '50px';
 
-
         // ds.VisualElement.style.display = "flex";
         // ds.VisualElement.style.flexDirection = "column";
         // ds.VisualElement.style.justifyContent = "center";
@@ -1313,7 +1333,19 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
             init: null
         };
 
-        ds.loaded();
+        //FIXME:
+        ds.VisualElement.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
+        ds.VisualElement.style.borderRadius = parseInt(ds.borderRadius)+"px";
+        ds.VisualElement.style.fontFamily = ds.textFontFamily;
+
+        ds.contentLabel.style.fontSize = parseInt(ds.dateLabelFontsize)+'px';
+        ds.VisualElement.style.fontStyle = ds.textFontStyle;
+        ds.VisualElement.style.color = ds.titleColor;
+
+        //点击显示框
+        ds.VisualElement.addEventListener('mousedown',ds.popUpPicker,false);
+        ds.VisualElement.addEventListener('touchstart',ds.popUpPicker,false);
+        // ds.loaded();
 
     }
     ds.onload();

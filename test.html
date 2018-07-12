@@ -7,8 +7,10 @@
     <link rel="stylesheet" type="text/css" href="dateTimePicker.css" />
 
     <script src="https://lc.dbazure.cn/dbfx/dbfx.js"></script>
-    <script src="https://lc.dbazure.cn/dbfxui/dbfx.web.controls.js"></script>
+    <script src="https://lc.dbazure.cn/dbfx/dbfx.data.js"></script>
     <script src="https://lc.dbazure.cn/dbfx/dbfx.commodel.js"></script>
+    <script src="https://lc.dbazure.cn/dbfxui/dbfx.web.controls.js"></script>
+
     <script src="dateTimePicker.js"></script>
 </head>
 <body>
@@ -19,29 +21,31 @@
     var d = new DBFX.Web.Controls.DateTimePicker();
     // d._setDateFormatArray();
 
-    var time = new Date('2012/12/22');
-    // console.log(time);
-    // console.log(time.toLocaleTimeString());
-
+    // var time = new Date();
+    // console.log(time.getMonth());
+    // // console.log(time.toLocaleTimeString());
+    // var date = new Date(time.getFullYear(),time.getMonth(),time.getDate());
+    // console.log(date);
 
 
     // d.PickerType = 'date';
     // d.PickerType = 'date';
     // d.PickerType = 'date';
     // d.PickerType = 'dateAndTime';
-    // d.PickerType = 'time';
+    d.PickerType = 'time';
     d.SetHeight('30px');
     d.SetWidth('15%');
     d.PickerType = 'dateAndTime';
 
     // d.SetValue(new Date());
 
+    console.log(d.value);
 
-    console.log(d.GetValue());
+
+    // console.log(d.GetValue());
 
     document.getElementById('div').appendChild(d.VisualElement);
     // var com = d.createComponent();
-
 
 
 </script>

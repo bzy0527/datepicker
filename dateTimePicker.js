@@ -118,10 +118,8 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
 
     ds.VisualElement = document.createElement("DIV");
+    ds.VisualElement.className = "DateTimePicker";
     ds.OnCreateHandle();
-
-    // console.log(ds.VisualElement);
-    // document.body.appendChild(ds.VisualElement);
 
     //初始化当前日期
     // ds.currentDate = new Date();
@@ -153,29 +151,34 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
             //     ds.VisualElement.removeChild(nodes[count - 1]);
             // }
 
-            switch (v){
-                case "date":
-                    ds.value = new Date(ds.value.getFullYear(),ds.value.getMonth(),ds.value.getDate());
-                    ds.selectDate = new Date(ds.value.getFullYear(),ds.value.getMonth(),ds.value.getDate());
-                    break;
-                case "time":
-                    ds.value = ds.value;
-                    ds.selectDate = ds.value;
-                    break;
-                case "dateAndTime":
-                    ds.value = ds.value;
-                    ds.selectDate = ds.value;
-                    break;
-                default:
-                    break;
-            }
+            //根据类型设置日期格式
+            ds.setDateWithType(v);
 
             ds.contentLabel.innerText = ds.getDisplayDateStr(ds.value);
-
-
             // ds.loaded();
         }
     });
+
+    //根据类型设置日期格式
+    ds.setDateWithType = function (type) {
+        switch (type){
+            case "date":
+                ds.value = new Date(ds.value.getFullYear(),ds.value.getMonth(),ds.value.getDate());
+                ds.selectDate = new Date(ds.value.getFullYear(),ds.value.getMonth(),ds.value.getDate());
+                break;
+            case "time":
+                ds.value = ds.value;
+                ds.selectDate = ds.value;
+                break;
+            case "dateAndTime":
+                ds.value = ds.value;
+                ds.selectDate = ds.value;
+                break;
+            default:
+                break;
+        }
+
+    }
 
     //显示字体
     ds.textFontFamily = "PingFang SC";
@@ -303,8 +306,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         }
     });
 
-
-
     //边框样式
     ds.borderColor = "#cbcbcb";
     Object.defineProperty(ds,"Border_Color",{
@@ -352,7 +353,8 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         }else {
             ds.VisualElement.style.height = parseInt(v)+'px';
         }
-        ds.VisualElement.style.lineHeight = parseInt(v)+'px';
+        var cssObj = window.getComputedStyle(ds.VisualElement,null);
+        ds.VisualElement.style.lineHeight = cssObj.height;
     }
 
     ds.SetWidth = function (v) {
@@ -365,7 +367,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
 
     //平台属性配置
-    ds.VisualElement.className = "DateTimePicker";
 
     ds.SetFontFamily = function (v) {
         ds.textFontFamily = v;
@@ -437,24 +438,43 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
     // ds.contentLabel.innerText
 
-    ds.ValueChanged = function () {
+    ds.OnValueChanged = function () {
 
         if (ds.dataBindings != undefined && ds.dataContext != undefined) {
             ds.dataContext[ds.dataBindings.Path] = ds.value;
         }
         ds.RegisterFormContext();
+
+        if (ds.ValueChanged != undefined) {
+            if (ds.ValueChanged.GetType != undefined && ds.ValueChanged.GetType() == "Command") {
+                ds.ValueChanged.Sender = ds;
+                ds.ValueChanged.Execute();
+
+            }
+            else
+            if (typeof ds.ValueChanged == "function")
+                ds.ValueChanged(ds);
+        }
+
     }
 
+    //注册绑定路径
     ds.RegisterFormContext = function () {
         if (ds.FormContext != null && ds.dataProperty != "" && ds.dataProperty != undefined) {
+
+            //根据类型设置日期格式
+            ds.setDateWithType(ds.type);
+
             if (ds.dataDomain != undefined && ds.dataDomain != "") {
 
                 var ddv = ds.FormContext[ds.dataDomain];
                 if (ddv == undefined)
                     ds.FormContext[ds.dataDomain] = new DBFX.DataDomain();
+
                 ds.FormContext[ds.dataDomain][ds.dataProperty] = ds.value;
             }
             else {
+
                 ds.FormContext[ds.dataProperty] = ds.value;
             }
         }
@@ -462,6 +482,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
 
     ds.GetValue=function() {
+        ds.setDateWithType(ds.type);
         return ds.value;
     }
 
@@ -476,8 +497,8 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
             if (v == undefined || v == "" || isNaN(new Date(v)))
                 v = new Date();
-
             ds.value = v;
+
             ds.SetDateValue(v);
 
         }
@@ -511,7 +532,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
         ds.contentLabel.innerText = ds.getDisplayDateStr(v);
 
-        ds.ValueChanged();
+        ds.OnValueChanged();
 
     }
 
@@ -1255,7 +1276,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         ds.contentLabel.innerText = ds.handleDate(ds.tempDate);
 
         console.log(ds.value);
-        ds.ValueChanged();
+        ds.OnValueChanged();
 
         //隐藏控件
         ds.hiddenOverlay();
@@ -1296,23 +1317,23 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
     //创建时调用
     ds.onload = function () {
-        ds.contentLabel = document.createElement('div');
+        ds.container = document.createElement('div');
+        ds.container.className = "DateTimePicker_Container";
+        ds.VisualElement.appendChild(ds.container);
 
+        ds.contentLabel = document.createElement('div');
         ds.contentLabel.innerText = ds.getDisplayDateStr(ds.value);
         ds.contentLabel.style.display = 'inline-block';
+        ds.container.appendChild(ds.contentLabel);
+
 
         // ds.VisualElement.innerHTML = '<div id="dateSelect" style="width: 100%">'+'20180424'+'</div>';
-        ds.VisualElement.appendChild(ds.contentLabel);
+
+
         ds.VisualElement.style.width = '100px';
         ds.VisualElement.style.height = '50px';
         ds.VisualElement.style.textAlign = 'center';
-
-        ds.VisualElement.style.display = 'block';
         ds.VisualElement.style.lineHeight = '50px';
-
-        // ds.VisualElement.style.display = "flex";
-        // ds.VisualElement.style.flexDirection = "column";
-        // ds.VisualElement.style.justifyContent = "center";
 
 
         if(b!=undefined){

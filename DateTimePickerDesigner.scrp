@@ -69,7 +69,6 @@
     <c T="wc:ColorPicker" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;CancelBtnBgColor&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
 
 
-
     <c T="wc:BreakLine" />
     <c T="wc:Label" Text="按钮字体大小:" Margin="4px 2px 2px 16px" Float="left"/>
     <c T="wc:TextBox" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;BtnFontsize&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />

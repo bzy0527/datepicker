@@ -14,13 +14,21 @@
     <script src="dateTimePicker.js"></script>
 </head>
 <body>
-<div id="div" style="width: 800px; height: 500px;border: 1px solid saddlebrown;"></div>
+<div id="div" style="width: 800px; height: 500px;border: 1px solid saddlebrown;font-size: 0px">
+    <div style="width: 200px;height: 60px;border: 1px solid cyan;display: inline-block;" ></div>
+    <div style="width: 200px;height: 60px;border: 1px solid cyan;display: inline-block;" ></div>
+</div>
+
+<div id="test" style="width: 200px;height: 60px;border: 1px solid cyan;display: inline-block;">
+
+</div>
 
 <script>
 
     var d = new DBFX.Web.Controls.DateTimePicker();
-    // d._setDateFormatArray();
+    document.getElementById('div').appendChild(d.VisualElement);
 
+    // d._setDateFormatArray();
     // var time = new Date();
     // console.log(time.getMonth());
     // // console.log(time.toLocaleTimeString());
@@ -32,19 +40,22 @@
     // d.PickerType = 'date';
     // d.PickerType = 'date';
     // d.PickerType = 'dateAndTime';
-    d.PickerType = 'time';
+    // d.PickerType = 'time';
     d.SetHeight('30px');
     d.SetWidth('15%');
     d.PickerType = 'dateAndTime';
 
     // d.SetValue(new Date());
 
-    console.log(d.value);
 
+    d.Value = new Date(2017,5,23,12,23,33);
 
     // console.log(d.GetValue());
+    d.VisualElement.style.display = "inline-block";
 
-    document.getElementById('div').appendChild(d.VisualElement);
+    // d.VisualElement.style.marginTop = "10px";
+
+    console.log(d.Value);
     // var com = d.createComponent();
 
 

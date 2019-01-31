@@ -1236,6 +1236,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
             default:
                 break;
         }
+        ds.saveState();
     }
 
     ds.contentClick = function (event) {
@@ -1287,11 +1288,22 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
         ds.hiddenOverlay();
     }
+    
+    
+    ds.saveState = function () {
+        app.SaveState("dateTimePicker", ds.closePicker);
+    }
 
     //隐藏选择器页面
     ds.hiddenOverlay = function () {
         // ds.dtBox.style.display = 'none';
         // ds.dtBox.classList.remove('dtpicker-mobile');
+
+        // document.body.removeChild(ds.dtBox);
+        app.GoBack();
+    }
+
+    ds.closePicker = function () {
         document.body.removeChild(ds.dtBox);
     }
 

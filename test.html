@@ -17,10 +17,11 @@
 <div id="div" style="width: 800px; height: 500px;border: 1px solid saddlebrown;font-size: 0px">
     <div style="width: 200px;height: 60px;border: 1px solid cyan;display: inline-block;" ></div>
     <div style="width: 200px;height: 60px;border: 1px solid cyan;display: inline-block;" ></div>
+
 </div>
 
 <div id="test" style="width: 200px;height: 60px;border: 1px solid cyan;display: inline-block;">
-
+    <input type="text">
 </div>
 
 <script>
@@ -28,6 +29,9 @@
     var d = new DBFX.Web.Controls.DateTimePicker();
     document.getElementById('div').appendChild(d.VisualElement);
 
+    d.ValueChanged = function () {
+        console.log("ValueChanged");
+    }
     // d._setDateFormatArray();
     // var time = new Date();
     // console.log(time.getMonth());

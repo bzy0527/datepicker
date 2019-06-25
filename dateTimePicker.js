@@ -396,7 +396,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         }
     });
 
-    //定义验证规则属性
+    //TODO:定义验证规则属性
     Object.defineProperty(ds, "CheckRule", {
         get: function () {
             return ds.checkRule;
@@ -409,34 +409,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         }
     });
 
-    //TODO:验证数据是否合法
-    // ds.Validate = function () {
-    //
-    //     var r = true;
-    //     try{
-    //         if (ds.checkRule != undefined) {
-    //
-    //             var crule = ds.checkRule.replace("Length", "ds.Value.length").replace("ICD", "ds.Value.length==18").replace("MPhoneID", "ds.Value.length==11");
-    //             if (crule == "123.00") {
-    //
-    //                 r = (Math.abs(ds.Value * 1) >= 0);
-    //
-    //             }
-    //             else {
-    //                 crule = "r=(" + crule + ");";
-    //                 r = eval(crule);
-    //             }
-    //
-    //         }
-    //     }
-    //     catch (ex) {
-    //         r = false;
-    //     }
-    //
-    //     return r;
-    // }
-
-    // ds.contentLabel.innerText
 
     ds.OnValueChanged = function () {
 
@@ -642,8 +614,10 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
         //按钮布局
         sTempStr += "<div class='dtpicker-buttonCont dtpicker-twoButtons'>";
-        sTempStr += "<a class='dtpicker-button dtpicker-buttonSet'>"+"确定"+"</a>";
-        sTempStr += "<a class='dtpicker-button dtpicker-buttonClear'>"+"取消"+"</a>";
+        sTempStr += "<input type='button' class='dtpicker-button dtpicker-buttonSet' value='确定'>";
+        sTempStr += "<input type='button' class='dtpicker-button dtpicker-buttonClear' value='取消'>";
+        // sTempStr += "<a class='dtpicker-button dtpicker-buttonSet' >"+"确定"+"</a>";
+        // sTempStr += "<a class='dtpicker-button dtpicker-buttonClear' >"+"取消"+"</a>";
         sTempStr += "</div>";
 
 
@@ -1224,6 +1198,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     }
 
     ds.popUpPicker = function () {
+        // ds.VisualElement.focus();
         ds.loaded();
         switch (event.type){
             case "touchstart":
@@ -1236,6 +1211,8 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
             default:
                 break;
         }
+        // document.body.appendChild(ds.dtBox);
+        ds.ensureBtn.focus();
         ds.saveState();
     }
 

@@ -1,6 +1,14 @@
 .DateTimePicker{
     vertical-align: top;
     overflow: hidden;
+
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 12px;
+    border: 1px solid #8d8d8d;
+    /*color: #2980B9;*/
 }
 
 .DateTimePicker .DateTimePicker_Container {
@@ -14,6 +22,12 @@
     justify-content: center;
     align-items: center;
 
+}
+
+.DateTimePicker .DateTimePicker_ContentLabel{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
 
 .dtpicker-overlay

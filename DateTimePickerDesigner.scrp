@@ -14,7 +14,7 @@
 
     <c T="wc:BreakLine" BackgroundColor="lightgray"  BorderWidth="0px"    Height="1px" Margin="2px" />
     <c T="wc:BreakLine" />
-    <c T="wc:Label" Text="控件样式:" Margin="4px 2px 2px 16px" Float="left"/>
+    <c T="wc:Label" Text="时间显示样式:" Margin="4px 2px 2px 16px" Float="left"/>
     <c T="wc:ComboBox"  Display="block"  Margin="2px 14px 2px 16px" Height="26px"  DataBindings="{&quot;Path&quot;:&quot;PickerType&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" >
      <Items>
           <Item Text="日期" Value="date"  ImageUrl="" />
@@ -22,38 +22,6 @@
           <Item Text="日期和时间" Value="dateAndTime"  ImageUrl="" />
      </Items>
     </c>
-
-    <c T="wc:BreakLine" />
-    <c T="wc:Label" Text="字体样式:" Margin="4px 2px 2px 16px" Float="left"/>
-    <c T="wc:ComboBox"  Display="block"  Margin="2px 14px 2px 16px" Height="26px"  DataBindings="{&quot;Path&quot;:&quot;TextFontFamily&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" >
-     <Items>
-          <Item Text="微软雅黑" Value="Microsoft Yahei"  ImageUrl="" />
-          <Item Text="宋体" Value="SimSun"  ImageUrl="" />
-          <Item Text="黑体" Value="SimHei"  ImageUrl="" />
-          <Item Text="楷体" Value="KaiTi"  ImageUrl="" />
-          <Item Text="仿宋" Value="FangSong"  ImageUrl="" />
-          <Item Text="苹方" Value="PingFang SC"  ImageUrl="" />
-          <Item Text="华文楷体" Value="STKaiti"  ImageUrl="" />
-          <Item Text="华文行楷" Value="STXingkai"  ImageUrl="" />
-          <Item Text="华文隶书" Value="STLiti"  ImageUrl="" />
-     </Items>
-    </c>
-
-    <c T="wc:BreakLine" />
-    <c T="wc:Label" Text="标题字体大小:" Margin="4px 2px 2px 16px" Float="left"/>
-    <c T="wc:TextBox" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;TitleFontsize&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
-
-    <c T="wc:BreakLine" />
-    <c T="wc:Label" Text="标题字体颜色:" Margin="4px 2px 2px 16px" Float="left"/>
-    <c T="wc:ColorPicker" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;TitleColor&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
-
-    <c T="wc:BreakLine" />
-    <c T="wc:Label" Text="时间显示字体大小:" Margin="4px 2px 2px 16px" Float="left"/>
-    <c T="wc:TextBox" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;DateLabelFontsize&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
-
-    <c T="wc:BreakLine" />
-    <c T="wc:Label" Text="时间显示字体颜色:" Margin="4px 2px 2px 16px" Float="left"/>
-    <c T="wc:ColorPicker" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;DateLabelColor&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
 
     <c T="wc:BreakLine" />
     <c T="wc:Label" Text="头部背景颜色:" Margin="4px 2px 2px 16px" Float="left"/>
@@ -68,7 +36,6 @@
     <c T="wc:Label" Text="取消按钮背景颜色:" Margin="4px 2px 2px 16px" Float="left"/>
     <c T="wc:ColorPicker" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;CancelBtnBgColor&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
 
-
     <c T="wc:BreakLine" />
     <c T="wc:Label" Text="按钮字体大小:" Margin="4px 2px 2px 16px" Float="left"/>
     <c T="wc:TextBox" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;BtnFontsize&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
@@ -80,20 +47,6 @@
     <c T="wc:BreakLine" />
     <c T="wc:Label" Text="取消按钮字体颜色:" Margin="4px 2px 2px 16px" Float="left"/>
     <c T="wc:ColorPicker" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;CancelBtnFontColor&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
-
-    <c T="wc:BreakLine" />
-    <c T="wc:Label" Text="边框颜色:" Margin="4px 2px 2px 16px" Float="left"/>
-    <c T="wc:ColorPicker" Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;Border_Color&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
-
-    <c T="wc:BreakLine" />
-
-    <c T="wc:Label" Text="边框宽度:" Margin="4px 2px 2px 16px" Float="left"/>
-    <c T="wc:TextBox"  Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;Border_Width&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
-
-    <c T="wc:BreakLine" />
-
-    <c T="wc:Label" Text="边框圆角:" Margin="4px 2px 2px 16px" Float="left"/>
-    <c T="wc:TextBox"  Display="block" Height="26px" Margin="2px 14px 2px 16px" DataBindings="{&quot;Path&quot;:&quot;Border_Radius&quot;,&quot;Mode&quot;:&quot;OneWay&quot;,&quot;Source&quot;:&quot;&quot;}" />
 
       </controls>
     </c>

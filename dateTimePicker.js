@@ -116,22 +116,8 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
             bIs12Hour: false
         };
 
+    ds.value = new Date();
 
-    ds.VisualElement = document.createElement("DIV");
-    ds.VisualElement.className = "DateTimePicker";
-    ds.OnCreateHandle();
-
-    //初始化当前日期
-    // ds.currentDate = new Date();
-    ds.currentDate = "2018-05-14 00:00:00";
-    Object.defineProperty(ds,"CurrentDate",{
-        get:function () {
-            return ds.currentDate;
-        },
-        set:function (v) {
-            ds.currentDate = v;
-        }
-    });
 
     //设置选择控件的类型 date/time/dateAndTime
     ds.type = 'dateAndTime';
@@ -159,6 +145,111 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         }
     });
 
+    //获取时间显示字符串
+    ds.getDisplayDateStr = function (date) {
+
+        var y,m,d,h,mi,sec,week;
+        if(date instanceof Date){
+
+            y = date.getFullYear();
+            m = date.getMonth()+1;
+            d = date.getDate();
+            h = date.getHours();
+            mi = date.getMinutes();
+            sec = date.getSeconds();
+            week = date.getDay();
+
+        }else {//xxxx-xx-xx xx:xx:xx
+            var timeArr = date.split(' ');
+            var dates = timeArr[0].split('-');
+            var times = timeArr[1].split(':');
+            y = dates[0];
+            m = dates[1];
+            d = dates[2];
+            h = times[0];
+            mi = times[1];
+            sec = times[2];
+        }
+
+
+        var showText;
+        switch (ds.type){
+            case "date":
+                showText = y+ds.defaults.dateSeparator+m+ds.defaults.dateSeparator+d;//+ds.defaults.dateSeparator+ds.defaults.shortDayNames[week];
+                break;
+            case "time":
+                var minutes = ''+mi,
+                    seconds = ''+sec;
+
+                mi = minutes.length == 2 ? mi : '0'+mi;
+                sec = seconds.length == 2 ? sec : '0'+sec;
+                showText = h+ds.defaults.timeSeparator+mi+ds.defaults.timeSeparator+sec;
+                break;
+            case "dateAndTime":
+
+                var minutes = ''+mi,
+                    seconds = ''+sec;
+
+                mi = minutes.length == 2 ? mi : '0'+mi;
+                sec = seconds.length == 2 ? sec : '0'+sec;
+
+                //显示周：ds.defaults.dateSeparator+ds.defaults.shortDayNames[week]
+                showText = y+ds.defaults.dateSeparator+m+ds.defaults.dateSeparator+d+" "
+                    +h+ds.defaults.timeSeparator+mi;
+                break;
+            default:
+                break;
+        }
+
+        return showText;
+    }
+
+    ds.VisualElement = document.createElement("DIV");
+    ds.VisualElement.className = "DateTimePicker";
+
+    ds.OnCreateHandle();
+    ds.OnCreateHandle = function () {
+        ds.VisualElement.innerHTML = "<div class='DateTimePicker_Container'><span class='DateTimePicker_ContentLabel'></span></div>";
+        ds.container = ds.VisualElement.querySelector("div.DateTimePicker_Container");
+        ds.contentLabel = ds.VisualElement.querySelector("span.DateTimePicker_ContentLabel");
+        ds.contentLabel.innerText = ds.getDisplayDateStr(ds.value);
+
+        if(b!=undefined){
+            ds.DataBindings = b;
+        }
+
+        ds.oData = {
+            sArrInputDateFormats: [],
+            sArrInputTimeFormats:[],
+            sArrInputDateTimeFormats:[],
+
+        };
+        ds.settings = {
+            dateSeparator: "-",
+            timeSeparator: ":",
+            dateTimeSeparator: " ",
+            isPopup: true,
+            init: null
+        };
+
+        //点击显示框
+        ds.VisualElement.addEventListener('mousedown',ds.popUpPicker,false);
+        ds.VisualElement.addEventListener('touchstart',ds.popUpPicker,false);
+    }
+
+    //初始化当前日期
+    // ds.currentDate = new Date();
+    ds.currentDate = "2018-05-14 00:00:00";
+    Object.defineProperty(ds,"CurrentDate",{
+        get:function () {
+            return ds.currentDate;
+        },
+        set:function (v) {
+            ds.currentDate = v;
+        }
+    });
+
+
     //根据类型设置日期格式
     ds.setDateWithType = function (type) {
         switch (type){
@@ -180,59 +271,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
     }
 
-    //显示字体
-    ds.textFontFamily = "PingFang SC";
-    Object.defineProperty(ds,"TextFontFamily",{
-        get:function () {
-            return ds.textFontFamily;
-        },
-        set:function (v) {
-            ds.textFontFamily = v;
-        }
-    });
-
     ds.textFontStyle = 400;
-
-    //
-    ds.titleColor = '#2980B9';
-    Object.defineProperty(ds,"TitleColor",{
-        get:function () {
-            return ds.titleColor;
-        },
-        set:function (v) {
-            ds.titleColor = v;
-        }
-    });
-
-    ds.titleFontsize = 12;
-    Object.defineProperty(ds,"TitleFontsize",{
-        get:function () {
-            return ds.titleFontsize;
-        },
-        set:function (v) {
-            ds.titleFontsize = v;
-        }
-    });
-
-    ds.dateLabelColor = '#666666';
-    Object.defineProperty(ds,"DateLabelColor",{
-        get:function () {
-            return ds.dateLabelColor;
-        },
-        set:function (v) {
-            ds.dateLabelColor = v;
-        }
-    });
-
-    ds.dateLabelFontsize = 12;
-    Object.defineProperty(ds,"DateLabelFontsize",{
-        get:function () {
-            return ds.dateLabelFontsize;
-        },
-        set:function (v) {
-            ds.dateLabelFontsize = v;
-        }
-    });
 
     ds.btnFontsize = 14;
     Object.defineProperty(ds,"BtnFontsize",{
@@ -306,38 +345,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         }
     });
 
-    //边框样式
-    ds.borderColor = "#cbcbcb";
-    Object.defineProperty(ds,"Border_Color",{
-        get:function () {
-            return ds.borderColor;
-        },
-        set:function (v) {
-            ds.borderColor = v;
-        }
-    });
-
-    ds.borderWidth = 1;
-    Object.defineProperty(ds,"Border_Width",{
-        get:function () {
-            return ds.borderWidth;
-        },
-        set:function (v) {
-            ds.borderWidth = v;
-        }
-    });
-
-    ds.borderRadius = 0;
-    Object.defineProperty(ds,"Border_Radius",{
-        get:function () {
-            return ds.borderRadius;
-        },
-        set:function (v) {
-            ds.borderRadius = v;
-        }
-    });
-
-    ds.value = new Date();
 
     //保存年、月、日、时、分 显示的控件
     //{year: ,month: ,day: ,hour: ,minutes: ,seconds: }
@@ -365,16 +372,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         }
     }
 
-
-    //平台属性配置
-
-    ds.SetFontFamily = function (v) {
-        ds.textFontFamily = v;
-    }
-
-    ds.SetFontSize = function (v) {
-        ds.titleFontsize = v;
-    }
 
     ds.SetFontStyle = function (v) {
         ds.textFontStyle = v;
@@ -538,10 +535,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
     ds.init = function () {
         var oDTP = ds;
 
-        //TODO:此处应该设置ds.value值
-
-
-
         if(oDTP.settings.isPopup)
         {
             oDTP.createPicker();
@@ -560,7 +553,6 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
                 default:
                     break;
             }
-
         }
 
         if(oDTP.settings.init)
@@ -952,64 +944,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
         return showText;
     }
 
-    //获取时间显示字符串
-    ds.getDisplayDateStr = function (date) {
 
-        var y,m,d,h,mi,sec,week;
-        if(date instanceof Date){
-
-            y = date.getFullYear();
-            m = date.getMonth()+1;
-            d = date.getDate();
-            h = date.getHours();
-            mi = date.getMinutes();
-            sec = date.getSeconds();
-            week = date.getDay();
-
-        }else {//xxxx-xx-xx xx:xx:xx
-            var timeArr = date.split(' ');
-            var dates = timeArr[0].split('-');
-            var times = timeArr[1].split(':');
-            y = dates[0];
-            m = dates[1];
-            d = dates[2];
-            h = times[0];
-            mi = times[1];
-            sec = times[2];
-        }
-
-
-        var showText;
-        switch (ds.type){
-            case "date":
-                showText = y+ds.defaults.dateSeparator+m+ds.defaults.dateSeparator+d;//+ds.defaults.dateSeparator+ds.defaults.shortDayNames[week];
-                break;
-            case "time":
-                var minutes = ''+mi,
-                    seconds = ''+sec;
-
-                mi = minutes.length == 2 ? mi : '0'+mi;
-                sec = seconds.length == 2 ? sec : '0'+sec;
-                showText = h+ds.defaults.timeSeparator+mi+ds.defaults.timeSeparator+sec;
-                break;
-            case "dateAndTime":
-
-                var minutes = ''+mi,
-                    seconds = ''+sec;
-
-                mi = minutes.length == 2 ? mi : '0'+mi;
-                sec = seconds.length == 2 ? sec : '0'+sec;
-
-                //显示周：ds.defaults.dateSeparator+ds.defaults.shortDayNames[week]
-                showText = y+ds.defaults.dateSeparator+m+ds.defaults.dateSeparator+d+" "
-                    +h+ds.defaults.timeSeparator+mi;
-                break;
-            default:
-                break;
-        }
-
-        return showText;
-    }
 
     //处理'+'点击事件
     ds.handleIncrementBtnClick = function (event,element) {
@@ -1114,54 +1049,43 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
     //设置实例对象的样式
     ds.setElementsStyle = function () {
-        // ds.header.style.background = '#dddddd';
-        //FIXME:
-        // ds.VisualElement.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
-        // ds.VisualElement.style.borderRadius = parseInt(ds.borderRadius)+"px";
-        // ds.VisualElement.style.fontFamily = ds.textFontFamily;
-        //
-        // ds.contentLabel.style.fontSize = parseInt(ds.dateLabelFontsize)+'px';
-        // ds.VisualElement.style.fontStyle = ds.textFontStyle;
-        // ds.VisualElement.style.color = ds.titleColor;
 
         //控件整体样式
-        ds.content.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
-        ds.content.style.borderRadius = parseInt(ds.borderRadius)+"px";
+        ds.content.style.border = ds.BorderColor+' '+'solid'+' '+ parseInt(ds.BorderWidth) +'px';
+        ds.content.style.borderRadius = parseInt(ds.BorderRadius)+"px";
         //控件头部样式
         ds.header.style.background = ds.headerBgColor;
-        ds.header.style.borderTopRightRadius = parseInt(ds.borderRadius)+"px";
-        ds.header.style.borderTopLeftRadius = parseInt(ds.borderRadius)+"px";
+        ds.header.style.borderTopRightRadius = parseInt(ds.BorderRadius)+"px";
+        ds.header.style.borderTopLeftRadius = parseInt(ds.BorderRadius)+"px";
         //标题显示样式
-        ds.titleE.style.color = ds.titleColor;
-        ds.titleE.style.fontFamily = ds.textFontFamily;
-        ds.titleE.style.fontSize = parseInt(ds.titleFontsize)+'px';
+        ds.titleE.style.color = ds.Color;
+        ds.titleE.style.fontFamily = ds.FontFamily;
+        ds.titleE.style.fontSize = parseInt(ds.FontSize)+'px';
 
         //显示日期标签
-        ds.valueLabel.style.color = ds.dateLabelColor;
-        ds.valueLabel.style.fontFamily = ds.textFontFamily;
-        ds.valueLabel.style.fontSize = parseInt(ds.dateLabelFontsize)+'px';
+        ds.valueLabel.style.color = ds.Color;
+        ds.valueLabel.style.fontFamily = ds.FontFamily;
+        ds.valueLabel.style.fontSize = ds.FontSize;
 
         //确定、取消按钮样式设置
-        ds.ensureBtn.style.fontFamily = ds.textFontFamily;
+        ds.ensureBtn.style.fontFamily = ds.FontFamily;
         ds.ensureBtn.style.color = ds.ensureBtnFontColor;
         ds.ensureBtn.style.fontSize = parseInt(ds.btnFontsize)+'px';
         ds.ensureBtn.style.backgroundColor = ds.ensureBtnBgColor;
         //
-        ds.cancelBtn.style.fontFamily = ds.textFontFamily;
+        ds.cancelBtn.style.fontFamily = ds.FontFamily;
         ds.cancelBtn.style.color = ds.cancelBtnFontColor;
         ds.cancelBtn.style.fontSize = parseInt(ds.btnFontsize)+'px';
         ds.cancelBtn.style.backgroundColor = ds.cancelBtnBgColor;
 
-        // ds.ensureBtn.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
-        // ds.cancelBtn.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
-        ds.cancelBtn.style.borderTop = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
-        ds.cancelBtn.style.borderRight = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
-        ds.ensureBtn.style.borderTop = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
+
+        ds.cancelBtn.style.borderTop = ds.BorderColor+' '+'solid'+' '+ parseInt(ds.BorderWidth) +'px';
+        ds.cancelBtn.style.borderRight = ds.BorderColor+' '+'solid'+' '+ parseInt(ds.BorderWidth) +'px';
+        ds.ensureBtn.style.borderTop = ds.BorderColor+' '+'solid'+' '+ parseInt(ds.BorderWidth) +'px';
 
 
         //调节区域背景颜色
         ds.components.style.background = ds.comBgColor;
-
 
     }
 
@@ -1303,63 +1227,7 @@ DBFX.Web.Controls.DateTimePicker = function (b) {
 
     }
 
-
-    //创建时调用
-    ds.onload = function () {
-        ds.container = document.createElement('div');
-        ds.container.className = "DateTimePicker_Container";
-        ds.VisualElement.appendChild(ds.container);
-
-        ds.contentLabel = document.createElement('div');
-        ds.contentLabel.innerText = ds.getDisplayDateStr(ds.value);
-        ds.contentLabel.style.display = 'inline-block';
-        ds.container.appendChild(ds.contentLabel);
-
-
-        // ds.VisualElement.innerHTML = '<div id="dateSelect" style="width: 100%">'+'20180424'+'</div>';
-
-
-        ds.VisualElement.style.width = '100px';
-        ds.VisualElement.style.height = '50px';
-        ds.VisualElement.style.textAlign = 'center';
-        ds.VisualElement.style.lineHeight = '50px';
-
-
-        if(b!=undefined){
-            ds.DataBindings = b;
-        }
-
-        ds.oData = {
-            sArrInputDateFormats: [],
-            sArrInputTimeFormats:[],
-            sArrInputDateTimeFormats:[],
-
-        };
-        ds.settings = {
-            dateSeparator: "-",
-            timeSeparator: ":",
-            dateTimeSeparator: " ",
-            isPopup: true,
-            init: null
-        };
-
-        //FIXME:
-        ds.VisualElement.style.border = ds.borderColor+' '+'solid'+' '+ parseInt(ds.borderWidth) +'px';
-        ds.VisualElement.style.borderRadius = parseInt(ds.borderRadius)+"px";
-        ds.VisualElement.style.fontFamily = ds.textFontFamily;
-
-        ds.contentLabel.style.fontSize = parseInt(ds.dateLabelFontsize)+'px';
-        ds.VisualElement.style.fontStyle = ds.textFontStyle;
-        ds.VisualElement.style.color = ds.titleColor;
-
-        //点击显示框
-        ds.VisualElement.addEventListener('mousedown',ds.popUpPicker,false);
-        ds.VisualElement.addEventListener('touchstart',ds.popUpPicker,false);
-        // ds.loaded();
-
-    }
-    ds.onload();
-
+    ds.OnCreateHandle();
     return ds;
 }
 DBFX.Serializer.DateTimePickerSerializer = function () {
@@ -1367,19 +1235,10 @@ DBFX.Serializer.DateTimePickerSerializer = function () {
     //反系列化
     this.DeSerialize = function (c, xe, ns) {
         DBFX.Serializer.DeSerialProperty("PickerType", c, xe);
-        DBFX.Serializer.DeSerialProperty("TextFontFamily", c, xe);
-        DBFX.Serializer.DeSerialProperty("TitleColor", c, xe);
-        DBFX.Serializer.DeSerialProperty("TitleFontsize", c, xe);
-        DBFX.Serializer.DeSerialProperty("DateLabelColor", c, xe);
-        DBFX.Serializer.DeSerialProperty("DateLabelFontsize", c, xe);
+
         DBFX.Serializer.DeSerialProperty("BtnFontsize", c, xe);
         DBFX.Serializer.DeSerialProperty("EnsureBtnFontColor", c, xe);
         DBFX.Serializer.DeSerialProperty("CancelBtnFontColor", c, xe);
-        DBFX.Serializer.DeSerialProperty("Border_Color", c, xe);
-        DBFX.Serializer.DeSerialProperty("Border_Width", c, xe);
-        DBFX.Serializer.DeSerialProperty("Border_Radius", c, xe);
-        // DBFX.Serializer.DeSerialProperty("CurrentDate", c, xe);
-
 
         DBFX.Serializer.DeSerialProperty("ComBgColor", c, xe);
         DBFX.Serializer.DeSerialProperty("HeaderBgColor", c, xe);
@@ -1391,18 +1250,10 @@ DBFX.Serializer.DateTimePickerSerializer = function () {
     //系列化
     this.Serialize = function (c, xe, ns) {
         DBFX.Serializer.SerialProperty("PickerType", c.PickerType, xe);
-        DBFX.Serializer.SerialProperty("TextFontFamily", c.TextFontFamily, xe);
-        DBFX.Serializer.SerialProperty("TitleColor", c.TitleColor, xe);
-        DBFX.Serializer.SerialProperty("TitleFontsize", c.TitleFontsize, xe);
-        DBFX.Serializer.SerialProperty("DateLabelColor", c.DateLabelColor, xe);
-        DBFX.Serializer.SerialProperty("DateLabelFontsize", c.DateLabelFontsize, xe);
+
         DBFX.Serializer.SerialProperty("BtnFontsize", c.BtnFontsize, xe);
         DBFX.Serializer.SerialProperty("EnsureBtnFontColor", c.EnsureBtnFontColor, xe);
         DBFX.Serializer.SerialProperty("CancelBtnFontColor", c.CancelBtnFontColor, xe);
-        DBFX.Serializer.SerialProperty("Border_Color", c.Border_Color, xe);
-        DBFX.Serializer.SerialProperty("Border_Width", c.Border_Width, xe);
-        DBFX.Serializer.SerialProperty("Border_Radius", c.Border_Radius, xe);
-        // DBFX.Serializer.SerialProperty("CurrentDate", c.CurrentDate, xe);
 
         DBFX.Serializer.SerialProperty("ComBgColor", c.ComBgColor, xe);
         DBFX.Serializer.SerialProperty("HeaderBgColor", c.HeaderBgColor, xe);

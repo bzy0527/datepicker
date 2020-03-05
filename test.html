@@ -45,7 +45,7 @@
     // d.PickerType = 'date';
     // d.PickerType = 'dateAndTime';
     // d.PickerType = 'time';
-    d.SetHeight('30px');
+    d.SetHeight('80%');
     d.SetWidth('15%');
     d.PickerType = 'dateAndTime';
 
@@ -63,6 +63,12 @@
 
     console.log(d.Value);
     // var com = d.createComponent();
+
+
+    var reg = /^[_a-zA-Z$][_a-zA-Z$0-9]+(.[_a-zA-Z$][_a-zA-Z$0-9]+)+/;
+    var result = reg.test("aaa._test._aa");
+    console.log(result);
+
 
 
 </script>
